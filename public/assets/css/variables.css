@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* Spacing values */
+  --sv-0: 0;
+  --sv-1: 0.25rem;
+  --sv-2: 0.5rem;
+  --sv-3: 0.75rem;
+  --sv-4: 1rem;
+  --sv-5: 1.25rem;
+  --sv-6: 1.5rem;
+  --sv-7: 1.75rem;
+  --sv-8: 2rem;
+  --sv-9: 2.25rem;
+  --sv-10: 2.5rem;
+  --sv-11: 2.75rem;
+  --sv-12: 3rem;
+  --sv-14: 3.5rem;
+  --sv-16: 4rem;
+  --sv-20: 5rem;
+  --sv-24: 6rem;
+  --sv-28: 7rem;
+  --sv-32: 8rem;
+  --sv-36: 9rem;
+  --sv-40: 10rem;
+  --sv-44: 11rem;
+  --sv-48: 12rem;
+  --sv-52: 13rem;
+  --sv-56: 14rem;
+  --sv-60: 15rem;
+  --sv-64: 16rem;
+  --sv-72: 18rem;
+  --sv-80: 20rem;
+  --sv-96: 24rem;
+
+  /* Font families */
+  --font-sans: "Poppins", sans-serif;
+  --font-serif: "Merriweather", serif;
+  --font-mono: "Fira Code", monospace;
+
+  /* Font sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  /* Font weights */
+  --font-thin: 100;
+  --font-extralight: 200;
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* Colors */
+  --white: #ffffff;
+  --black: #000000;
+  --primary: #1ab7ea;
+  --primary-hover: #0695c5;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --cyan: #17a2b8;
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+
+  /* Border radius */
+  --rounded: 0.25rem;
+  --rounded-full: 9999px;
+  --rounded-sm: 0.125rem;
+  --rounded-md: 0.25rem;
+  --rounded-lg: 0.5rem;
+  --rounded-xl: 0.75rem;
+  --rounded-2xl: 1rem;
+  --rounded-3xl: 1.5rem;
+  --rounded-4xl: 2rem;
+  --rounded-5xl: 2.5rem;
+  --rounded-6xl: 3rem;
+
+  /* Opacity values */
+  --opacity-0: 0;
+  --opacity-25: 0.25;
+  --opacity-50: 0.5;
+  --opacity-75: 0.75;
+  --opacity-100: 1;
+
+  /* Z-index values */
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-60: 60;
+  --z-70: 70;
+  --z-80: 80;
+  --z-90: 90;
+  --z-100: 100;
+
+  /* Shadow */
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+
+  /* Transition */
+  --transition: all 0.3s ease-in-out;
+}
