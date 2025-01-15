@@ -1,4 +1,16 @@
 <?php
+require_once __DIR__ . '/../../../config/app.php';
+
+function redirect_url($path)
+{
+    global $appConfig;
+
+    $base_url = rtrim($appConfig['base_url'], '/'); // Pastikan base_url tanpa trailing slash
+    $path = ltrim($path, '/'); // Pastikan path tanpa leading slash
+
+    return $base_url . '/' . $path;
+}
+
 ob_start();
 ?>
 <div class="container">
@@ -29,11 +41,11 @@ ob_start();
                     required
                     placeholder="********" />
             </div>
-            <a href="register.php">Belum Punya Akun?</a>
+            <a href="<?= redirect_url('/register'); ?>" class="link">Not yet registered?</a>
             <button
                 type="submit"
                 class="btn btn-primary btn-lg">
-                Masuk <i class="bx bxs-right-arrow-circle"></i>
+                Login <i class="bx bxs-right-arrow-circle"></i>
             </button>
         </form>
     </div>
