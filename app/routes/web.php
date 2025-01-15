@@ -6,7 +6,7 @@ use Core\BaseRoute;
 // Deklarasi route
 
 // Home page
-// BaseRoute::get('/', 'HomePageController@index');
+BaseRoute::get('/', 'HomeController@index');
 
 // Authentication
 BaseRoute::get('/login', 'AuthController@loginView');
