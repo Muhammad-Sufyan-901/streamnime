@@ -9,6 +9,7 @@ body {
   background-attachment: fixed;
   background-position: center center;
 }
+
 body::before {
   content: "";
   position: absolute;
@@ -18,12 +19,6 @@ body::before {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
-}
-body main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 header.header {

@@ -1,0 +1,30 @@
+body {
+  background-image: none;
+  background-color: rgb(255, 255, 255);
+}
+
+body::before {
+  display: none;
+}
+
+header.header {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+main#main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+main#main .container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.75rem;
+}

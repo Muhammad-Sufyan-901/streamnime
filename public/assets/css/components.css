@@ -132,6 +132,30 @@ form .link {
   transition: all 0.3s ease-in-out;
 }
 
+form.form-light .form-control input {
+  background-color: rgb(238, 238, 238);
+  border: 1px solid rgba(155, 163, 175, 0.25);
+  color: #364152;
+}
+
+form.form-light .form-control input::placeholder {
+  color: #9ba3af;
+}
+
+form.form-light .form-control input:focus {
+  border-color: #008bfa;
+}
+
+form.form-light .form-control select {
+  background-color: rgb(238, 238, 238);
+  border: 1px solid rgba(155, 163, 175, 0.25);
+  color: #364152;
+}
+
+form.form-light .form-control select:focus {
+  border-color: #008bfa;
+}
+
 .btn {
   border: none;
   outline: none;
