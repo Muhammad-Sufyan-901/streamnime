@@ -60,8 +60,10 @@ class AuthController extends BaseController
             $user = $this->userModel->loginUser($email, $password);
 
             if ($user) {
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['role'] = $user['user'];
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['logged_in'] = true;
 
                 $_SESSION['flash_message'] = [
                     'type' => 'success',
@@ -130,8 +132,10 @@ class AuthController extends BaseController
             }
 
             if ($user) {
-                $_SESSION['id'] = $user['id'];
-                $_SESSION['role'] = $user['user'];
+                $_SESSION['user_id'] = $user['user_id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                $_SESSION['logged_in'] = true;
 
                 $_SESSION['flash_message'] = [
                     'type' => 'success',
