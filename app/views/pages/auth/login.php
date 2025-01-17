@@ -18,7 +18,7 @@ ob_start();
         <h2 class="title text-4xl font-bold text-white mb-12">Sign In</h2>
 
         <form
-            action="process/process_login.php"
+            action="<?= redirect_url('/login/process'); ?>"
             class="form form-container"
             method="POST"
             id="login-form">
@@ -30,7 +30,7 @@ ob_start();
                     name="email"
                     id="email"
                     required
-                    placeholder="muhammadsufyan@gmail.com" />
+                    placeholder="johndoe@gmail.com" />
             </div>
             <div class="form-control">
                 <label for="password">Password</label>
