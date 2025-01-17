@@ -16,7 +16,10 @@ BaseRoute::post('/login/process', 'AuthController@processLogin');
 BaseRoute::post('/register/process', 'AuthController@processRegister');
 
 // Detail anime
-// BaseRoute::get('/detail/{nama-anime}', 'AnimeController@detail');
+BaseRoute::get('/detail/{nama-anime}', 'AnimeController@detail');
 
 // Profile page
 BaseRoute::protectedRoute('/profile', 'ProfileController@profileView');
+
+// Update profile
+BaseRoute::post('/profile/update', 'ProfileController@updateProfile');
