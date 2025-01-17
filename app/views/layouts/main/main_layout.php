@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="./assets/css/components.css">
     <link rel="stylesheet" href="./assets/css/main/styles.css">
 
+    <!-- Page CSS -->
+    <?php if (isset($pageStyle)): ?>
+        <link rel="stylesheet" href="./assets/css/<?= $pageStyle ?>.css">
+    <?php endif; ?>
+
     <!-- Icons Library -->
     <link
         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -31,8 +36,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php
-    session_start();
-
     if (!empty($_SESSION['flash_message'])) {
         $flashMessage = $_SESSION['flash_message'];
         echo "<script>
