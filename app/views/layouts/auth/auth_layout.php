@@ -28,6 +28,27 @@
     <?php require_once __DIR__ . '/partials/footer.php'; ?>
 
     <script src="./assets/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <?php
+    session_start();
+
+    if (!empty($_SESSION['flash_message'])) {
+        $flashMessage = $_SESSION['flash_message'];
+        echo "<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                icon: '{$flashMessage['type']}',
+                title: '{$flashMessage['message']}',
+                confirmButtonColor: '#008bfa',
+                timer: 1500,
+            });
+        });
+    </script>";
+
+        unset($_SESSION['flash_message']); // Hapus pesan flash setelah ditampilkan
+    }
+    ?>
 </body>
 
 </html>
