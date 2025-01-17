@@ -4,20 +4,26 @@ namespace App\Models;
 
 use PDO;
 use PDOException;
+use Core\BaseModel;
 
-class UserModel
+class UserModel extends BaseModel
 {
-    private $db;
-
-    public function __construct(PDO $db)
-    {
-        $this->db = $db;
-    }
-
     // Menambahkan pengguna baru
     public function createUser($username, $email, $password)
     {
         try {
+            $isEmailExists = "SELECT * FROM users WHERE email = :email";
+
+            $stmt = $this->db->prepare($isEmailExists);
+
+            $stmt->bindParam(':email', $email);
+
+            $stmt->execute();
+
+            if ($isEmailExists) {
+                return "Email already exists";
+            }
+
             $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
             $sql = "INSERT INTO users (username, email, password) VALUES (:username, :email, :password)";
@@ -91,6 +97,32 @@ class UserModel
             echo "Error deleting user: " . $e->getMessage();
 
             return false;
+        }
+    }
+
+    // Login pengguna
+    public function loginUser($email, $password)
+    {
+        try {
+            $sql = "SELECT * FROM users WHERE email = :email";
+
+            $stmt = $this->db->prepare($sql);
+
+            $stmt->bindParam(':email', $email);
+
+            $stmt->execute();
+
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user && password_verify($password, $user['password'])) {
+                return $user;
+            }
+
+            return null;
+        } catch (PDOException $e) {
+            echo "Error logging in user: " . $e->getMessage();
+
+            return null;
         }
     }
 }
