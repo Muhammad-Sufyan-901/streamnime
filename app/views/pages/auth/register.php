@@ -20,7 +20,7 @@ ob_start();
         <p class="description mb-12">Please fill in this form to create an account!</p>
 
         <form
-            action=""
+            action="<?= redirect_url('/register/process'); ?>"
             class="form form-container"
             method="POST"
             id="login-form">
@@ -41,7 +41,7 @@ ob_start();
                     name="email"
                     id="email"
                     required
-                    placeholder="muhammadsufyan@gmail.com" />
+                    placeholder="johndoe@gmail.com" />
             </div>
             <div class="form-control">
                 <label for="password">Password</label>
