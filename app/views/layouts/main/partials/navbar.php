@@ -5,7 +5,7 @@
                 <i class='bx bx-menu'></i>
             </button>
 
-            <img src="./assets/images/logo/logo-streamnime.png" alt="StreamNime Logo" width="175" class="logo">
+            <img src="./assets/images/logo/logo-streamnime-blue.png" alt="StreamNime Logo" width="175" class="logo">
         </div>
 
         <form
