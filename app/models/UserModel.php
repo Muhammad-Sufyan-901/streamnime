@@ -66,6 +66,22 @@ class UserModel extends BaseModel
     public function updateUser($id, $username, $email)
     {
         try {
+            // Periksa apakah email sudah digunakan oleh pengguna lain
+            $isEmailExistsQuery = "SELECT COUNT(*) FROM users WHERE email = :email AND id != :id";
+
+            $stmt = $this->db->prepare($isEmailExistsQuery);
+
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':id', $id);
+
+            $stmt->execute();
+
+            $emailCount = $stmt->fetchColumn();
+
+            if ($emailCount > 0) {
+                return "Email already exists";
+            }
+
             $sql = "UPDATE users SET username = :username, email = :email WHERE id = :id";
 
             $stmt = $this->db->prepare($sql);
