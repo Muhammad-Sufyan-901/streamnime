@@ -12,14 +12,11 @@ BaseRoute::get('/', 'HomeController@index');
 BaseRoute::get('/login', 'AuthController@loginView');
 BaseRoute::get('/register', 'AuthController@registerView');
 
-// // Detail anime
+BaseRoute::post('/login/process', 'AuthController@processLogin');
+BaseRoute::post('/register/process', 'AuthController@processRegister');
+
+// Detail anime
 // BaseRoute::get('/detail/{nama-anime}', 'AnimeController@detail');
 
-// // Login & Register
-// BaseRoute::get('/login', 'AuthController@login');
-// BaseRoute::post('/login', 'AuthController@doLogin');
-// BaseRoute::get('/register', 'AuthController@register');
-// BaseRoute::post('/register', 'AuthController@doRegister');
-
-// // Profile page
-// BaseRoute::get('/profile/{nama-user}', 'UserController@profile');
+// Profile page
+BaseRoute::protectedRoute('/profile', 'ProfileController@profileView');

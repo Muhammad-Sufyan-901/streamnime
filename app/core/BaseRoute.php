@@ -28,7 +28,7 @@ class BaseRoute
         $parsedBaseUrl = parse_url($base_url, PHP_URL_PATH);
 
         // Validasi hasil parsing
-        if ($parsedBaseUrl === null) {
+        if ($parsedBaseUrl === false || $parsedBaseUrl === '' || $parsedBaseUrl === null) {
             throw new \Exception("Base_url parsing failed. Make sure 'base_url' in config/app.php is valid.");
         }
 
@@ -72,25 +72,33 @@ class BaseRoute
      */
     public static function dispatch()
     {
+        global $appConfig;
+
         // Hapus base path dari URI request
         $requestUri = str_replace(self::$basePath, '', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
         $requestMethod = $_SERVER['REQUEST_METHOD'];
 
         foreach (self::$routes as $route) {
-            [$method, $uri, $controllerAction] = $route;
+            [$method, $uri, $controllerAction, $protected] = array_pad($route, 4, false);
 
             if ($method === $requestMethod && preg_match(self::convertToRegex($uri), $requestUri, $matches)) {
-                [$controllerName, $action] = explode('@', $controllerAction);
+                if ($protected) {
+                    session_start();
+                    if (!isset($_SESSION['logged_in']) || !$_SESSION['logged_in']) {
+                        $base_url = rtrim($appConfig['base_url'], '/');
+                        header("Location: " . $base_url . '/login');
+                        exit();
+                    }
+                }
 
+                [$controllerName, $action] = explode('@', $controllerAction);
                 $controllerClass = "\\App\\Controllers\\" . $controllerName;
                 $controller = new $controllerClass();
-
                 return call_user_func_array([$controller, $action], array_slice($matches, 1));
             }
         }
 
         http_response_code(404);
-
         echo "404 Not Found";
     }
 
@@ -99,6 +107,11 @@ class BaseRoute
         $pattern = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([a-zA-Z0-9_-]+)', $uri);
 
         return "#^" . $pattern . "$#";
+    }
+
+    public static function protectedRoute($uri, $controllerAction)
+    {
+        self::$routes[] = ['GET', $uri, $controllerAction, true];
     }
 }
 
