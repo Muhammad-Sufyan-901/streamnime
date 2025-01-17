@@ -19,7 +19,12 @@ class BaseController
      */
     protected function redirect($url)
     {
-        header("Location: $url");
+        global $appConfig;
+
+        $base_url = rtrim($appConfig['base_url'], '/'); // Pastikan base_url tanpa trailing slash
+        $path = ltrim($url, '/'); // Pastikan path tanpa leading slash
+
+        header("Location: " . $base_url . '/' . $path);
 
         exit;
     }
