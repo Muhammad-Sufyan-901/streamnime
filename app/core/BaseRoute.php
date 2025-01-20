@@ -91,10 +91,18 @@ class BaseRoute
                     }
                 }
 
+                // Extract named parameters from matches
+                $params = [];
+                foreach ($matches as $key => $value) {
+                    if (!is_int($key)) {
+                        $params[$key] = $value;
+                    }
+                }
+
                 [$controllerName, $action] = explode('@', $controllerAction);
                 $controllerClass = "\\App\\Controllers\\" . $controllerName;
                 $controller = new $controllerClass();
-                return call_user_func_array([$controller, $action], array_slice($matches, 1));
+                return call_user_func_array([$controller, $action], $params);
             }
         }
 
@@ -102,13 +110,20 @@ class BaseRoute
         echo "404 Not Found";
     }
 
+    /**
+     * Method untuk mengubah URI menjadi regex
+     */
     private static function convertToRegex($uri)
     {
-        $pattern = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([a-zA-Z0-9_-]+)', $uri);
+        // Convert :parameter to named regex groups
+        $pattern = preg_replace('/\:([a-zA-Z0-9_]+)/', '(?P<\1>[a-zA-Z0-9_-]+)', $uri);
 
         return "#^" . $pattern . "$#";
     }
 
+    /**
+     * Method untuk mendefinisikan route yang dilindungi (protected route)
+     */
     public static function protectedRoute($uri, $controllerAction)
     {
         self::$routes[] = ['GET', $uri, $controllerAction, true];

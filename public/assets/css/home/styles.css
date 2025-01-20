@@ -1,0 +1,212 @@
+@import url("../../variables.css");
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background: none;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  z-index: -1;
+}
+
+header.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+}
+
+header.header.header-scrolled {
+  background-color: rgb(255, 255, 255);
+}
+
+header.header nav.navbar {
+  max-width: 90vw !important;
+}
+
+header.header .navbar-toggle i {
+  font-size: 2.5em;
+  color: rgb(255, 255, 255);
+}
+
+header.header form.form .form-control input {
+  background-color: rgb(255, 255, 255);
+}
+
+header.header.header-scrolled form.form .form-control input {
+  background-color: rgb(238, 238, 238);
+}
+
+header.header.header-scrolled .navbar-toggle i {
+  color: rgb(0, 0, 0);
+}
+
+footer.footer {
+  background-color: var(--primary);
+}
+
+/* Main Banner */
+main#main .anime-banner {
+  width: 100%;
+  height: 95vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main#main .anime-banner .anime-banner-content {
+  height: fit-content;
+}
+
+main#main .anime-banner .anime-banner-content .anime-category-badge,
+main#main .anime-list .anime-category-badge {
+  background-color: var(--primary);
+  padding: 4px 12px;
+  border-radius: 4px;
+  color: #fefefe;
+}
+
+main#main .anime-banner .anime-banner-content .banner-description {
+  max-width: 40%;
+  color: #fefefe;
+  line-height: 1.35;
+}
+
+main#main .anime-banner .anime-banner-content .banner-buttons .btn-watch {
+  background-color: #fefefe;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  text-decoration: none !important;
+}
+
+main#main .anime-banner .anime-banner-content .banner-buttons .btn-watch i,
+main#main .anime-banner .anime-banner-content .banner-buttons .btn-favorite i {
+  font-size: 1.5rem;
+}
+
+main#main .anime-banner .anime-banner-content .banner-buttons .btn-favorite {
+  background-color: rgba(235, 235, 235, 0.35);
+  border: 1px solid rgba(235, 235, 235, 0.85);
+  color: #f05068;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  text-decoration: none !important;
+}
+
+/* Swiper */
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  color: var(--primary) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary) !important;
+}
+
+main#main .anime-list-container .anime-card img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+/* ===== Detail Anime Page ===== */
+main#main .detail-anime {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main#main .detail-anime .detail-anime-container {
+  width: 80%;
+  margin: 17.5vh auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+
+main#main .detail-anime .detail-anime-container .detail-anime-content {
+  width: 100%;
+  display: flex;
+  column-gap: 4rem;
+}
+
+main#main .detail-anime .detail-anime-container .detail-anime-poster {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+main#main .detail-anime .detail-anime-container .detail-anime-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+main#main .detail-anime .detail-anime-container .detail-anime-info .detail-anime-info-row span {
+  width: 25%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+main#main .detail-anime .detail-anime-container .detail-anime-info .detail-anime-info-row .anime-description {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+main#main .detail-anime .detail-anime-container .detail-anime-episodes .detail-anime-episode {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: rgb(238, 238, 238);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+}
+
+main#main .detail-anime .detail-anime-container .detail-anime-episodes .detail-anime-episode.active {
+  background-color: var(--primary);
+  color: #fff;
+}
